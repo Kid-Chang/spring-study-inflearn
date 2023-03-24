@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.service.MemberService;
 
@@ -36,6 +37,11 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
     // 기존에는 아래 memberRepository()를 통해 구현체를 호출해서 리턴했지만, 스프링 데이터 JPA를 이용할때는 구현체가 알아서 생성되므로, private final MemberRepository memberRepository; 하나 만들고 넣어주면 끝.
+
+    // @Bean
+    // public TimeTraceAop timeTraceAop(){
+    //     return new TimeTraceAop();
+    // }
 
     // @Bean
     // public MemberRepository memberRepository(){
